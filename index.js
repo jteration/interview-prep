@@ -1,17 +1,15 @@
 import { LinkedList } from "./LinkedLists/implement.mjs";
+import util from 'util';
 
 const linkedList = new LinkedList;
 
-linkedList.pushFront("Test");
+linkedList.pushBack("Test");
 
-linkedList.pushFront("Test2");
+linkedList.pushBack("Test2");
 
-linkedList.pushFront("Test3");
+linkedList.pushBack("Test3");
 
-linkedList.pushFront("Test4");
+linkedList.pushBack("Test4");
 
-console.log(linkedList.head);
-
-linkedList.reverse();
-
-console.log(linkedList.head);
+console.log(util.inspect(linkedList.head, false, null, true));
+console.log(linkedList.tail);

@@ -5,6 +5,11 @@ export function LinkedList() {
 			enumerable: false,
 			writable: true
 		},
+		tail: {
+			value: null,
+			enumerable: false,
+			writable: true
+		},
 		size: {
 			value: 0,
 			enumerable: false,
@@ -16,23 +21,18 @@ export function LinkedList() {
 			writable: false
 		},
 		pushFront: {
-			value: (val) => {
-				if (this.head == null) {
-					this.head = {
-						value: val,
-						next: null
-					};
+			value: (value) => {
+				const item = {
+					value,
+					next: null
+				}
+
+				if (this.size === 0) {
+					this.head = item;
+					this.tail = item;
 				} else {
-					let tail = this.head;
-
-					while (tail.next != null) {
-						tail = tail.next;
-					}
-
-					tail.next = {
-						value: val,
-						next: null
-					};
+					item.next = this.head;
+					this.head = item;
 				}
 
 				this.size += 1;
@@ -41,13 +41,20 @@ export function LinkedList() {
 			writable: false
 		},
 		pushBack: {
-			value: (val) => {
-				const newHead = {
-					value: val,
-					next: this.head
+			value: (value) => {
+				const item = {
+					value,
+					next: null
 				};
 
-				this.head = newHead;
+				if (this.size === 0) {
+					this.head = item;
+					this.tail = item;
+				} else {
+					this.tail.next = item;
+					this.tail = item;
+				}
+
 				this.size += 1;
 			},
 			enumerable: false,
@@ -60,9 +67,16 @@ export function LinkedList() {
 				}
 
 				const { value } = this.head;
-				const newHead = this.head.next;
 
-				this.head = newHead;
+				if (this.size === 1) {
+					this.head = null;
+					this.tail = null;
+				} else {
+					const newHead = this.head.next;
+	
+					this.head = newHead;
+				}
+
 				this.size -= 1;
 
 				return value;
@@ -74,11 +88,10 @@ export function LinkedList() {
 			value: () => {
 				if (this.size === 0) {
 					throw new Error("List is empty");
-				}
-
-				if (this.size === 1) {
+				} else if (this.size === 1) {
 					const { value } = this.head;
 					this.head = null;
+					this.tail = null;
 					this.size -= 1;
 
 					return value;
@@ -93,6 +106,7 @@ export function LinkedList() {
 				}
 
 				prev.next = null;
+				this.tail = prev;
 				this.size -= 1;
 
 				return current.value;
@@ -117,13 +131,7 @@ export function LinkedList() {
 					return undefined;
 				}
 
-				let current = this.head;
-
-				while (current.next != null) {
-					current = current.next;
-				}
-
-				return current.value;
+				return this.tail.value;
 			},
 			enumerable: false,
 			writable: false
@@ -134,19 +142,24 @@ export function LinkedList() {
 					throw new Error("Index out of bounds");
 				}
 
-				let current = this.head;
+				if (index === this.size) {
+					this.pushBack(value);
+				} else {
+					let current = this.head;
+	
+					for (let i = 0; i < index - 1; i += 1) {
+						current = current.next;
+					}
 
-				for (let i = 0; i < index - 1; i += 1) {
-					current = current.next;
+					const newNode = {
+						value,
+						next: current.next
+					};
+
+					current.next = newNode;
+
+					this.size += 1;
 				}
-
-				const newNode = {
-					value,
-					next: current.next
-				};
-
-				current.next = newNode;
-				this.size += 1;
 			},
 			enumerable: false,
 			writable: false
@@ -155,27 +168,26 @@ export function LinkedList() {
 			value: (index) => {
 				if (this.size === 0) {
 					throw new Error("List is empty");
-				}
-
-				if (index > this.size - 1) {
+				} else if (index > this.size - 1) {
 					throw new Error("Index out of bounds");
 				}
 
 				if (index === 0) {
-					this.head = this.head.next;
-					return;
+					this.popFront();
+				} else if (index === this.size - 1) {
+					this.popBack();
+				} else {
+					let prev = this.head;
+					let current = this.head.next;
+	
+					for (let i = 0; i < index - 1; i += 1) {
+						prev = current;
+						current = current.next;
+					}
+	
+					prev.next = current.next;
+					this.size -= 1;
 				}
-
-				let prev = this.head;
-				let current = this.head.next;
-
-				for (let i = 0; i < index - 1; i += 1) {
-					prev = current;
-					current = current.next;
-				}
-
-				prev.next = current.next;
-				this.size -= 1;
 			},
 			enumerable: false,
 			writable: false
@@ -197,6 +209,7 @@ export function LinkedList() {
 				}
 
 				this.head.next = null;
+				this.tail = this.head;
 				this.head = prev;
 			},
 			enumerable: false,
