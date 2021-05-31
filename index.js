@@ -1,15 +1,17 @@
-import { LinkedList } from "./LinkedLists/implement.mjs";
+import { ArrayQueue } from './Queue/implement.mjs';
 import util from 'util';
 
-const linkedList = new LinkedList;
+const queue = new ArrayQueue(5);
 
-linkedList.pushBack("Test");
+queue.enqueue("Test");
+queue.enqueue("Test1");
+queue.enqueue("Test2");
+queue.enqueue("Test3");
+queue.enqueue("Test4");
+queue.dequeue();
+queue.enqueue("Test5");
+const test = queue.dequeue();
+queue.enqueue("Test6");
+console.log(test);
 
-linkedList.pushBack("Test2");
-
-linkedList.pushBack("Test3");
-
-linkedList.pushBack("Test4");
-
-console.log(util.inspect(linkedList.head, false, null, true));
-console.log(linkedList.tail);
+// console.log(util.inspect(linkedList.head, false, null, true));

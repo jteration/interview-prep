@@ -25,7 +25,7 @@ export function LinkedList() {
 				const item = {
 					value,
 					next: null
-				}
+				};
 
 				if (this.size === 0) {
 					this.head = item;
@@ -73,7 +73,7 @@ export function LinkedList() {
 					this.tail = null;
 				} else {
 					const newHead = this.head.next;
-	
+
 					this.head = newHead;
 				}
 
@@ -88,7 +88,9 @@ export function LinkedList() {
 			value: () => {
 				if (this.size === 0) {
 					throw new Error("List is empty");
-				} else if (this.size === 1) {
+				}
+
+				if (this.size === 1) {
 					const { value } = this.head;
 					this.head = null;
 					this.tail = null;
@@ -146,7 +148,7 @@ export function LinkedList() {
 					this.pushBack(value);
 				} else {
 					let current = this.head;
-	
+
 					for (let i = 0; i < index - 1; i += 1) {
 						current = current.next;
 					}
@@ -179,12 +181,12 @@ export function LinkedList() {
 				} else {
 					let prev = this.head;
 					let current = this.head.next;
-	
+
 					for (let i = 0; i < index - 1; i += 1) {
 						prev = current;
 						current = current.next;
 					}
-	
+
 					prev.next = current.next;
 					this.size -= 1;
 				}
@@ -198,7 +200,7 @@ export function LinkedList() {
 					return;
 				}
 
-				let prev = this.head
+				let prev = this.head;
 				let current = this.head.next;
 
 				while (current != null) {
