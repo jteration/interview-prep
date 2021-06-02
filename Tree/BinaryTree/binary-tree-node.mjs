@@ -3,5 +3,5 @@ export function BinaryTreeNode(value) {
 		value,
 		right: null,
 		left: null
-	}
-};
+	};
+}

@@ -25,7 +25,7 @@ export function ListQueue() {
 			enumerable: false,
 			writable: false
 		}
-	})
+	});
 }
 
 export function ArrayQueue(size) {
@@ -41,7 +41,7 @@ export function ArrayQueue(size) {
 
 	function getIncrementedIndex(index) {
 		if (index + 1 > size + 1) {
-			return 0
+			return 0;
 		}
 
 		return index + 1;
@@ -98,5 +98,5 @@ export function ArrayQueue(size) {
 			enumerable: false,
 			writable: false
 		}
-	})
+	});
 }

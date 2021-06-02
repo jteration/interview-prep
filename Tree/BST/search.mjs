@@ -8,7 +8,7 @@ export const breadthFirstSearch = (tree, value) => {
 
 	queue.enqueue(tree);
 
-	while(!queue.empty()) {
+	while (!queue.empty()) {
 		bFSNodesVisited += 1;
 
 		const node = queue.dequeue();
@@ -27,7 +27,7 @@ export const breadthFirstSearch = (tree, value) => {
 	}
 
 	return null;
-}
+};
 
 let dFSNodesVisited = 0;
 
@@ -39,7 +39,7 @@ export const depthFirstSearch = (tree, value) => {
 	}
 
 	if (tree.value === value) {
-		return tree
+		return tree;
 	}
 
 	const leftPathTreeOrNull = depthFirstSearch(tree.left, value);
@@ -55,11 +55,11 @@ export const depthFirstSearch = (tree, value) => {
 	}
 
 	return null;
-}
+};
 
 let searchBSTNodesVisited = 0;
 
-export const searchBST = (tree, value) => {
+export const searchBinarySearchTree = (tree, value) => {
 	searchBSTNodesVisited += 1;
 
 	if (tree === null) {
@@ -71,23 +71,23 @@ export const searchBST = (tree, value) => {
 	}
 
 	if (tree.value < value) {
-		return searchBST(tree.right, value);
+		return searchBinarySearchTree(tree.right, value);
 	}
-	
+
 	if (tree.value > value) {
-		return searchBST(tree.left, value);
+		return searchBinarySearchTree(tree.left, value);
 	}
 
 	return null;
-}
+};
 
 console.log(depthFirstSearch(binarySearchTree, 50));
 console.log(breadthFirstSearch(binarySearchTree, 50));
 // console.log(depthFirstSearch(binaryTree, 50));
 // console.log(breadthFirstSearch(binaryTree, 50));
-console.log(searchBST(binarySearchTree, 50));
+console.log(searchBinarySearchTree(binarySearchTree, 50));
 console.log(`
 bFSNodesVisited: ${bFSNodesVisited}
 dFSNodesVisited: ${dFSNodesVisited}
 searchBSTNodesVisited: ${searchBSTNodesVisited}
-`)
+`);

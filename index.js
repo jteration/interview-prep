@@ -1,5 +1,5 @@
-import { ArrayQueue } from './Queue/implement.mjs';
-import util from 'util';
+import { ArrayQueue } from "./Queue/implement.mjs";
+import util from "util";
 
 const queue = new ArrayQueue(5);
 
