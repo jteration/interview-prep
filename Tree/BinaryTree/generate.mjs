@@ -20,12 +20,8 @@ const generateTree = (arr, isSearch, isFirst) => {
 	const right_values = arr.slice(mid + 1, arr.length);
 
 	const node = new BinaryTreeNode(value);
-	node.left = left_values.length
-		? generateTree(left_values, false, false)
-		: null;
-	node.right = right_values.length
-		? generateTree(right_values, false, false)
-		: null;
+	node.left = left_values.length ? generateTree(left_values, false, false) : null;
+	node.right = right_values.length ? generateTree(right_values, false, false) : null;
 
 	return node;
 };
