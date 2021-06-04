@@ -8,6 +8,8 @@ while (randomSet.size < 20) {
 	randomSet.add(randomInt);
 }
 
+randomSet.add(50);
+
 const randomArr = Array.from(randomSet);
 
 export function Graph(data) {
