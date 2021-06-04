@@ -35,21 +35,21 @@ export function mergeSort(arr) {
 
 		if (typeof rightItem === "undefined") {
 			sortedArr.push(leftItem);
-			leftIndex += 1
+			leftIndex += 1;
 		} else if (typeof leftItem === "undefined") {
 			sortedArr.push(rightItem);
-			rightIndex += 1
+			rightIndex += 1;
 		} else if (rightItem <= leftItem) {
 			sortedArr.push(rightItem);
-			rightIndex += 1
+			rightIndex += 1;
 		} else {
 			sortedArr.push(leftItem);
-			leftIndex += 1
+			leftIndex += 1;
 		}
 	}
 
 	return sortedArr;
-};
+}
 
 const sorted = mergeSort(unsortedArr);
 
