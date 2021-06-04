@@ -4,6 +4,8 @@ let compares = 0;
 const unsortedArr = [12, 15, 3, 56, 10, 9, 23, 65, 10, 10, 13];
 
 function swap(arr, i, j) {
+	console.log(`Swapping ${arr[i]} and ${arr[j]}`);
+	console.log(JSON.stringify(arr));
 	const temp = arr[i];
 	arr[i] = arr[j];
 	arr[j] = temp;
