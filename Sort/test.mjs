@@ -37,6 +37,22 @@ const amount = 10000;
 const length = 1000;
 const randomArrays = generateRandomArrays({ length, amount });
 
+function arrIsSorted(arr) {
+	let prev = arr[0];
+
+	for (let i = 1; i < arr.length; i += 1) {
+		const current = arr[i];
+
+		if (current < prev) {
+			return false;
+		}
+
+		prev = current;
+	}
+
+	return true;
+}
+
 export function testSorts() {
 	const results = {};
 
@@ -56,6 +72,10 @@ export function testSorts() {
 		const beforeBest = performance.now();
 		sort.fn(ourBestCase);
 		const afterBest = performance.now();
+		if (!arrIsSorted(ourBestCase)) {
+			console.log(ourBestCase);
+			throw new Error("ourBestCase isn't sorted!");
+		}
 		const elapsedBest = afterBest - beforeBest;
 		console.log(`${sort.name} best case completed in ${elapsedBest}\n`);
 
@@ -63,6 +83,10 @@ export function testSorts() {
 		const beforeWorst = performance.now();
 		sort.fn(ourWorstCase);
 		const afterWorst = performance.now();
+		if (!arrIsSorted(ourWorstCase)) {
+			console.log(ourWorstCase);
+			throw new Error("ourWorstCase isn't sorted!");
+		}
 		const elapsedWorst = afterWorst - beforeWorst;
 		console.log(`${sort.name} worst case completed in ${elapsedWorst}\n`);
 
@@ -70,6 +94,10 @@ export function testSorts() {
 		const beforeStandard = performance.now();
 		sort.fn(ourStandardArray);
 		const afterStandard = performance.now();
+		if (!arrIsSorted(ourStandardArray)) {
+			console.log(ourStandardArray);
+			throw new Error("ourStandardArray isn't sorted!");
+		}
 		const elapsedStandard = afterStandard - beforeStandard;
 		console.log(`${sort.name} standard array completed in ${elapsedStandard}\n`);
 
@@ -79,6 +107,12 @@ export function testSorts() {
 			sort.fn(ourRandomArrays[j]);
 		}
 		const afterRandom = performance.now();
+		for (let j = 0; j < ourRandomArrays.length; j += 1) {
+			if (!arrIsSorted(ourRandomArrays[j])) {
+				console.log(ourRandomArrays[j]);
+				throw new Error("ourRandomArrays isn't sorted!");
+			}
+		}
 		const elapsedRandom = afterRandom - beforeRandom;
 		console.log(`${sort.name} completed ${amount} random arrays in ${elapsedRandom}\n`);
 

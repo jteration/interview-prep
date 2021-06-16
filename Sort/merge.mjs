@@ -37,5 +37,9 @@ export function mergeSort(arr) {
 		}
 	}
 
+	for (let i = 0; i < sortedArr.length; i += 1) {
+		arr[i] = sortedArr[i];
+	}
+
 	return sortedArr;
 }
