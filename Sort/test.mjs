@@ -2,6 +2,7 @@ import { bubbleSort } from "./bubble.mjs";
 import { insertionSort } from "./insertion.mjs";
 import { mergeSort } from "./merge.mjs";
 import { quickSort } from "./quick.mjs";
+import { selectionSort } from "./selection.mjs";
 import { javascriptDefault } from "./default.mjs";
 import { bestCase, worstCase, standardTwenty, generateRandomArrays } from "./test-arrays.mjs";
 
@@ -21,6 +22,10 @@ const sorts = [
 	{
 		fn: quickSort,
 		name: "Quick Sort"
+	},
+	{
+		fn: selectionSort,
+		name: "Selection Sort"
 	},
 	{
 		fn: javascriptDefault,

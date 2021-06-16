@@ -23,6 +23,14 @@ function partition(arr, low, high) {
 }
 
 export function quickSort(arr, low, high) {
+	if (low === undefined) {
+		low = 0;
+	}
+
+	if (high === undefined) {
+		high = arr.length - 1;
+	}
+
 	if (low < high) {
 		const partitionIndex = partition(arr, low, high);
 

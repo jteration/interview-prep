@@ -5,10 +5,13 @@ function swap(arr, i, j) {
 }
 
 export function insertionSort(arr, arrPos) {
+	if (arrPos === undefined) {
+		arrPos = 0;
+	}
+
 	let unsortedPoint = arrPos;
 
 	while (arr[unsortedPoint] < arr[unsortedPoint - 1]) {
-		compares += 1;
 		swap(arr, unsortedPoint, unsortedPoint - 1);
 
 		if (unsortedPoint > 0) {
