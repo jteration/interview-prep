@@ -33,7 +33,9 @@ const sorts = [
 	}
 ];
 
-const randomArrays = generateRandomArrays({ length: 100, amount: 100 });
+const amount = 10000;
+const length = 1000;
+const randomArrays = generateRandomArrays({ length, amount });
 
 export function testSorts() {
 	const results = {};
@@ -71,19 +73,19 @@ export function testSorts() {
 		const elapsedStandard = afterStandard - beforeStandard;
 		console.log(`${sort.name} standard array completed in ${elapsedStandard}\n`);
 
-		console.log(`Running ${sort.name} on 100 random arrays of length 100`);
-		const before100 = performance.now();
+		console.log(`Running ${sort.name} on ${amount} random arrays of length ${length}`);
+		const beforeRandom = performance.now();
 		for (let j = 0; j < ourRandomArrays.length; j += 1) {
 			sort.fn(ourRandomArrays[j]);
 		}
-		const after100 = performance.now();
-		const elapsed100 = after100 - before100;
-		console.log(`${sort.name} completed 100 random arrays in ${elapsed100}\n`);
+		const afterRandom = performance.now();
+		const elapsedRandom = afterRandom - beforeRandom;
+		console.log(`${sort.name} completed ${amount} random arrays in ${elapsedRandom}\n`);
 
 		resultObj["Elapsed Best"] = elapsedBest.toFixed(5);
 		resultObj["Elapsed Worst"] = elapsedWorst.toFixed(5);
 		resultObj["Elapsed Standard"] = elapsedStandard.toFixed(5);
-		resultObj["Elapsed 100"] = elapsed100.toFixed(5);
+		resultObj["Elapsed Random"] = elapsedRandom.toFixed(5);
 		results[sort.name] = resultObj;
 	}
 
