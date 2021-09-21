@@ -33,7 +33,7 @@ const sorts = [
 	}
 ];
 
-const amount = 10000;
+const amount = 1000;
 const length = 1000;
 const randomArrays = generateRandomArrays({ length, amount });
 
