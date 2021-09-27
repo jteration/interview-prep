@@ -16,7 +16,7 @@ export function MyArray() {
 
 	Object.defineProperty(this, "at", {
 		value: (index) => {
-			if (index >= this.length) {
+			if (index < 0 || index >= this.length) {
 				throw new Error("Index out of bounds");
 			}
 
@@ -28,7 +28,7 @@ export function MyArray() {
 
 	Object.defineProperty(this, "insert", {
 		value: (index, item) => {
-			if (index > this.length) {
+			if (index < 0 || index > this.length) {
 				throw new Error("Index out of bounds");
 			}
 
@@ -63,7 +63,7 @@ export function MyArray() {
 
 	Object.defineProperty(this, "delete", {
 		value: (index) => {
-			if (index >= this.length) {
+			if (index < 0 || index >= this.length) {
 				throw new Error("Index out of bounds");
 			}
 
