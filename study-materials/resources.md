@@ -20,10 +20,12 @@
 
 ### Front End
 
-[Design a Poll Widget](https://www.youtube.com/watch?v=lO6GyCvbDm8)
-[Data Table Component](https://www.youtube.com/watch?v=u6jhTo13_No)
-[Typeahead Widget](https://www.youtube.com/watch?v=9aOXGE7wAZo)
-[Chat application](https://www.youtube.com/watch?v=LEaiGjffLEs)
-[Netflix](https://www.youtube.com/watch?v=Tu-hZ6lqNtY)
-[Pinterest](https://www.youtube.com/watch?v=3MADCVqL534)
-[Facebook News Feed](https://www.youtube.com/watch?v=5vyKhm2NTfw&t=879s)
+[Design a Poll Widget](https://www.youtube.com/watch?v=lO6GyCvbDm8)  
+[Data Table Component](https://www.youtube.com/watch?v=u6jhTo13_No)  
+[Typeahead Widget](https://www.youtube.com/watch?v=9aOXGE7wAZo)  
+[Chat application](https://www.youtube.com/watch?v=LEaiGjffLEs)  
+[Netflix](https://www.youtube.com/watch?v=Tu-hZ6lqNtY)  
+[Pinterest](https://www.youtube.com/watch?v=3MADCVqL534)  
+[Facebook News Feed](https://www.youtube.com/watch?v=5vyKhm2NTfw&t=879s)  
+
+### Back End
