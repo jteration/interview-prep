@@ -3,7 +3,8 @@
 ## Algorithms
   
 ### General
-  
+
+[Algorithm Grading Rubrick](https://docs.google.com/spreadsheets/d/1gy9cmPwNhZvola7kqnfY3DElk7PYrz2ARpaCODTp8Go/edit#gid=0)  
 [MIT Introduction to Algorithms](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-spring-2020/)
   
 ### Big O Fundamentals
