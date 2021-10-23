@@ -17,6 +17,11 @@
   
 [Geekforgeeks](https://www.geeksforgeeks.org/sorting-algorithms/)
   
+### Courses
+  
+[Grokking The Coding Interview](https://www.educative.io/courses/grokking-the-coding-interview)
+[Grokking Dynamic Programming Patterns for Coding Interviews](https://www.educative.io/courses/grokking-dynamic-programming-patterns-for-coding-interviews)
+  
 ## System Design
   
 ### Front End Focussed
@@ -33,3 +38,6 @@
   
 ### Full Stack
   
+### Courses
+  
+[Grokking The Coding Interview](https://www.educative.io/courses/grokking-the-coding-interview)
