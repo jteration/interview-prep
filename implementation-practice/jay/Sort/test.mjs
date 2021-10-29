@@ -125,3 +125,5 @@ export function testSorts() {
 
 	console.table(results);
 }
+
+testSorts();
